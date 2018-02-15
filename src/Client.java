@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 public class Client {
     public static void main(String[] args) throws Exception{
         Socket soc = new Socket("localhost", 9800);
+        System.out.println("Client Started");
 
         BufferedReader userInput = new BufferedReader( new InputStreamReader(System.in));
         //reads data from the console
@@ -26,19 +27,23 @@ public class Client {
             System.out.println("(2) Subtraction");
             System.out.println("(3) Multiplication");
             System.out.println("(4) Division");
+            System.out.println("(5) Exit");
             System.out.println("Enter an option:");
 
             operation = Integer.parseInt(userInput.readLine());
             //converts user input from string into integer
+            if(operation != 5) {
+                System.out.println("Enter first number:");
+                num1 = Integer.parseInt(userInput.readLine());
 
-            System.out.println("Enter first number:");
-            num1 = Integer.parseInt(userInput.readLine());
+                System.out.println("Enter second number:");
+                num2 = Integer.parseInt(userInput.readLine());
 
-            System.out.println("Enter second number:");
-            num2 = Integer.parseInt(userInput.readLine());
-
-            out.println(operation+":"+num1+":"+num2);
-            System.out.println("here");
+                out.println(operation + ":" + num1 + ":" + num2);
+            }else{
+                out.println(operation + ":0:0");
+                break;
+            }
 
             String answer = in.readLine();
             System.out.println("Answer:"+ answer);
@@ -46,6 +51,7 @@ public class Client {
 
 
         }while(true);
+        System.out.println("Client Ended");
     }
 }
 
