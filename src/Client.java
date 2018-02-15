@@ -41,7 +41,7 @@ public class Client {
             System.out.println("here");
 
             String answer = in.readLine();
-            System.out.println("Answer is:"+ answer);
+            System.out.println("Answer:"+ answer);
             System.out.println("");
 
 
