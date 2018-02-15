@@ -13,7 +13,7 @@ public class Client {
         BufferedReader in = new BufferedReader(new InputStreamReader(soc.getInputStream()));
         //reads data from the socket input stream
 
-        PrintWriter out = new PrintWriter(soc.getOutputStream());
+        PrintWriter out = new PrintWriter(soc.getOutputStream(),true);
         //sends data to the server
 
         int operation = 0;
@@ -38,6 +38,7 @@ public class Client {
             num2 = Integer.parseInt(userInput.readLine());
 
             out.println(operation+":"+num1+":"+num2);
+            System.out.println("here");
 
             String answer = in.readLine();
             System.out.println("Answer is:"+ answer);

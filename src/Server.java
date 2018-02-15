@@ -9,13 +9,16 @@ public class Server {
     public static void main(String[] args) throws Exception {
         // write your code here
         ServerSocket ss = new ServerSocket(9800);
+        System.out.println("Waiting for client...");
         Socket soc = ss.accept();
+        System.out.println("Connection established");
         BufferedReader in = new BufferedReader(new InputStreamReader(soc.getInputStream()));
         //read data from socket input stream
         PrintWriter out = new PrintWriter(soc.getOutputStream(), true);
         //auto prints to output stream
         while(true){
-            String str[] = in.readLine().split(":");
+            String [] str = in.readLine().split(":", 0);
+
 
             int operation = Integer.parseInt(str[0]);
             int num1 = Integer.parseInt(str[1]);
